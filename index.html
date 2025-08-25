@@ -2,29 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Weather App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather Forecast</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app">
-    <div class="search-box">
-      <input type="text" id="cityInput" placeholder="Enter city name...">
-      <button onclick="getWeather()">Search</button>
+  <div class="top-bar">
+    <button id="toggle-theme">🌙 Dark Mode</button>
+  </div>
+  <div class="container">
+    <div class="search">
+      <input type="text" id="city-input" placeholder="নগরীর নাম লিখো..." />
+      <button id="search-btn">🔍 খুঁজো</button>
+      <button id="locate-btn">📍 নিজের লোকেশন</button>
     </div>
 
-    <div class="weather-card">
-      <h2 id="cityName">--</h2>
-      <p id="date">--</p>
-      <h1 id="temperature">--°C</h1>
-      <p id="condition">--</p>
+    <div class="current-weather">
+      <h2 id="location-name">Rajshahi, BD</h2>
+      <div class="weather-main">
+        <img id="current-icon" src="" alt="icon">
+        <div>
+          <p id="current-temp">--°C</p>
+          <p id="current-desc">Loading...</p>
+        </div>
+      </div>
+      <div class="details">
+        <p>Humidity: <span id="current-humidity">--</span>%</p>
+        <p>Wind: <span id="current-wind">--</span> km/h</p>
+        <p>Sunrise: <span id="sunrise">--:--</span></p>
+        <p>Sunset: <span id="sunset">--:--</span></p>
+      </div>
     </div>
 
-    <div class="forecast-container" id="forecast">
-      <!-- 5-day forecast will be injected here -->
-    </div>
+    <h3>7 দিনের পূর্বাভাস</h3>
+    <div class="forecast" id="forecast"></div>
   </div>
 
-  <script src="script.js"></script>
+  <script defer src="script.js"></script>
 </body>
 </html>
