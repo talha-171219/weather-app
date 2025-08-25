@@ -1,0 +1,128 @@
+:root{
+  --bg: linear-gradient(180deg,#6a85ff 0%,#5ec4ff 100%);
+  --bg-night: linear-gradient(180deg,#1b1f3a 0%,#2f3a64 100%);
+  --text: #0a0a0a;
+  --text-inv:#f5f7fb;
+  --card:#ffffff;
+  --card-dark:#222639;
+  --muted:#5b6470;
+  --accent:#4c7cff;
+  --ok:#21c380;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";
+  color:var(--text-inv);
+  background:#1c2540;
+}
+.bg{
+  position:fixed; inset:0; z-index:-1; background:var(--bg);
+  transition:background .4s ease;
+}
+.bg.night{ background:var(--bg-night); }
+
+.topbar{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 18px;
+}
+.brand{ display:flex; align-items:center; gap:10px; }
+.brand .logo{font-size:22px}
+.topbar h1{margin:0; font-size:20px; font-weight:700}
+.actions{ display:flex; gap:8px; }
+
+.controls{
+  padding:0 18px 12px;
+}
+.search{
+  display:flex; gap:8px;
+}
+.search input{
+  flex:1; padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.15); color:#fff; outline:none;
+}
+.primary{
+  background:#ffffff; color:#0a0a0a; border:none; padding:12px 14px;
+  border-radius:10px; font-weight:600; cursor:pointer;
+}
+.ghost{
+  background:transparent; color:#fff; border:1px solid rgba(255,255,255,.35);
+  padding:10px 12px; border-radius:10px; cursor:pointer;
+}
+
+.container{
+  max-width:980px; margin:0 auto; padding:0 18px 40px;
+}
+
+.card{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:14px;
+  backdrop-filter: blur(8px);
+}
+
+.current{
+  display:grid; grid-template-columns:1.1fr .9fr; gap:16px;
+}
+.place h2{ margin:0 0 4px 0; font-size:22px }
+.place p{ margin:0; color:#dbe8ff }
+.temp-wrap{ display:flex; align-items:center; gap:14px; margin-top:10px }
+.temp{ font-size:56px; font-weight:800; line-height:1 }
+.hi-lo{ color:#e8f0ff; opacity:.9 }
+.current-right .facts{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:10px }
+.current-right .facts li{
+  background:rgba(0,0,0,.15); border:1px solid rgba(255,255,255,.12);
+  padding:10px 12px; border-radius:12px; display:flex; align-items:center; justify-content:space-between;
+}
+.current-left img{ width:70px; height:70px; image-rendering:-webkit-optimize-contrast }
+
+.section-title{
+  display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;
+}
+.section-title h3{ margin:0; font-size:16px; font-weight:700; letter-spacing:.2px }
+
+.hourly{
+  display:flex; gap:10px; overflow:auto; padding-bottom:6px;
+}
+.h-item{
+  min-width:76px; text-align:center; border-radius:12px; padding:10px 8px;
+  background:rgba(0,0,0,.15); border:1px solid rgba(255,255,255,.12);
+}
+.h-item img{ width:40px; height:40px }
+.h-time{ color:#e0e8ff; font-size:12px; margin-bottom:4px }
+.h-temp{ font-weight:700 }
+
+.daily{
+  display:grid; grid-template-columns: repeat(auto-fill,minmax(120px,1fr)); gap:10px;
+}
+.d-item{
+  text-align:center; border-radius:12px; padding:12px 10px;
+  background:rgba(0,0,0,.15); border:1px solid rgba(255,255,255,.12);
+}
+.d-item img{ width:46px; height:46px }
+.d-name{ font-weight:700; margin:4px 0 2px 0 }
+.d-range{ color:#d2defa }
+
+.favorites{ display:grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); gap:10px; }
+.fav-card{
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  padding:10px 12px; border-radius:12px;
+  background:rgba(0,0,0,.15); border:1px solid rgba(255,255,255,.12);
+}
+.fav-left{ display:flex; align-items:center; gap:10px }
+.fav-left img{ width:36px; height:36px }
+.fav-name{ font-weight:700 }
+.fav-temp{ font-size:20px; font-weight:800 }
+.fav-del{ background:transparent; border:1px solid rgba(255,255,255,.3); color:#fff; border-radius:10px; padding:6px 8px; cursor:pointer }
+
+.footer{ text-align:center; color:#d6e3ff; padding:14px; opacity:.8 }
+
+/* Responsive */
+@media (max-width: 760px){
+  .current{ grid-template-columns:1fr }
+  .current-right .facts{ grid-template-columns:1fr 1fr }
+}
