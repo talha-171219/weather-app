@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <title>আবহাওয়া — Weather App</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://openweathermap.org">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">☁️</span>
+      <h1>আবহাওয়া</h1>
+    </div>
+    <div class="actions">
+      <button id="themeToggle" class="ghost">🌙 Dark</button>
+      <button id="unitToggle" class="ghost">°C</button>
+    </div>
+  </header>
+
+  <section class="controls">
+    <form id="searchForm" class="search">
+      <input id="searchInput" type="text" placeholder="শহরের নাম লিখুন (যেমন: Rajshahi, Dhaka)" />
+      <button class="primary" type="submit">🔍 খুঁজুন</button>
+      <button id="locateBtn" class="ghost" type="button">📍 লোকেশন</button>
+    </form>
+  </section>
+
+  <main class="container">
+    <!-- Current weather card -->
+    <section class="card current">
+      <div class="current-left">
+        <div class="place">
+          <h2 id="placeName">—</h2>
+          <p id="conditionText">—</p>
+        </div>
+        <div class="temp-wrap">
+          <img id="currentIcon" alt="icon" />
+          <div>
+            <div class="temp" id="currentTemp">—°</div>
+            <div class="hi-lo">
+              H: <span id="todayHigh">—</span> • L: <span id="todayLow">—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="current-right">
+        <ul class="facts">
+          <li><strong>Feels</strong> <span id="feelsLike">—</span></li>
+          <li><strong>Humidity</strong> <span id="humidity">—</span></li>
+          <li><strong>Wind</strong> <span id="wind">—</span></li>
+          <li><strong>Pressure</strong> <span id="pressure">—</span></li>
+          <li><strong>Visibility</strong> <span id="visibility">—</span></li>
+          <li><strong>Clouds</strong> <span id="clouds">—</span></li>
+          <li><strong>Sunrise</strong> <span id="sunrise">—</span></li>
+          <li><strong>Sunset</strong> <span id="sunset">—</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Hourly forecast -->
+    <section class="card">
+      <div class="section-title">
+        <h3>ঘণ্টাভিত্তিক পূর্বাভাস (পরবর্তী ১২ ঘন্টা)</h3>
+      </div>
+      <div id="hourlyStrip" class="hourly"></div>
+    </section>
+
+    <!-- Daily forecast (5 days) -->
+    <section class="card">
+      <div class="section-title">
+        <h3>৫ দিনের পূর্বাভাস</h3>
+      </div>
+      <div id="dailyGrid" class="daily"></div>
+    </section>
+
+    <!-- Favorites / Compare -->
+    <section class="card">
+      <div class="section-title">
+        <h3>প্রিয় শহরসমূহ</h3>
+        <div class="fav-actions">
+          <button id="addFavBtn" class="ghost">⭐ বর্তমান শহর যোগ করুন</button>
+          <button id="clearFavBtn" class="ghost">🧹 সাফ করুন</button>
+        </div>
+      </div>
+      <div id="favorites" class="favorites"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>ডেটা: OpenWeatherMap • তৈরি করেছেন Monirul</p>
+  </footer>
+
+  <div id="bgOverlay" class="bg"></div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
